@@ -1,0 +1,49 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Width="750" Height="400"
+        x:Class="AvaloniaApplicationPracticeOne.tasksWindow"
+        Title="Просмотр задач">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="7" Margin="5">
+            <Button Content="Сегодня" Click="ViewTodayTasks_OnClick" Margin="5"/>
+            <Button Content="Завтра" Click="ViewTomorrowTasks_OnClick" Margin="5"/>
+            <Button Content="На неделю" Click="ViewWeekTasks_OnClick" Margin="5"/>
+            <Button Content="Все задачи" Click="ViewAllTasks_OnClick" Margin="5"/>
+            <Button Content="Предстоящие задачи" Click="ViewUpcomingTasks_OnClick" Margin="5"/>
+            <Button Content="Выполненные задачи" Click="ViewCompletedTasks_OnClick" Margin="5"/>
+        </StackPanel>
+        <DataGrid Grid.Row="1" Grid.ColumnSpan="7" Name="TasksDataGrid" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название" Binding="{Binding Title}" Width="200"/>
+                <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="300"/>
+                <DataGridTextColumn Header="Дата завершения" Binding="{Binding Duedata}" Width="150"/>
+                <DataGridTemplateColumn Header="Действия" Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <Button Content="Удалить" Click="DeleteTask_OnClick" Margin="5"/>
+                                <Button Content="Выполнено" Name="CompleteTask_OnClick" Background="#D3D3D3" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Закрыть" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10" Grid.Row="2" Grid.ColumnSpan="7" Click="leaveBtn_OnClick"/>
+    </Grid>
+</Window>

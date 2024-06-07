@@ -1,0 +1,27 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Width="350" Height="400" CanResize="False"
+        x:Class="AvaloniaApplicationPracticeOne.DailyPlannerWindow"
+        Title="DailyPlannerWindow">
+    <StackPanel Orientation="Vertical"
+                Margin="25"
+                VerticalAlignment="Center" >
+        <Button Content="Посмотреть задачи"
+                HorizontalAlignment="Center"
+                Margin="0 0 0 10"
+                Name="tasksWindowBtn"
+               Click="tasksWindowBtn_OnClick"/>
+        <Button Content="Добавить новые задачи"
+                HorizontalAlignment="Center"
+                Margin="0 0 0 10"
+                Name="addTasksBtn"
+                Click="addTasksBtn_OnClick"/>
+        <Button Content="Выход"
+                HorizontalAlignment="Center"
+                Margin="0 0 0 10"
+                Name="leaveBtn"
+                Click="leaveBtn_OnClick"/>
+    </StackPanel>
+</Window>
